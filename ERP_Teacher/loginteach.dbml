@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ERP_Teacher" Class="loginteachDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MEDJL47\SQLEXPRESS;Initial Catalog=ERP_Teacher;Integrated Security=True" SettingsObjectName="ERP_Teacher.Properties.Settings" SettingsPropertyName="ERP_TeacherConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.classe" Member="classes">
+    <Type Name="classe">
+      <Column Name="id_classe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="section" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="niveau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="annee_etude" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="groupe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="classe_enseigner" Member="enseigners" ThisKey="id_classe" OtherKey="id_classe" Type="enseigner" />
+      <Association Name="classe_mec" Member="mecs" ThisKey="id_classe" OtherKey="classe" Type="mec" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Administrator" Member="Administrators">
+    <Type Name="Administrator">
+      <Column Name="cin" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mot_de_passe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.enseignant" Member="enseignants">
+    <Type Name="enseignant">
+      <Column Name="cin" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="mots_de_passe" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="code_a_bar" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="mail" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="fbid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="gmailid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="enseignant_enseignant_mod" Member="enseignant_mods" ThisKey="cin" OtherKey="cin_enseignant" Type="enseignant_mod" />
+      <Association Name="enseignant_enseigner" Member="enseigners" ThisKey="cin" OtherKey="cin_enseignant" Type="enseigner" />
+      <Association Name="enseignant_mec" Member="mecs" ThisKey="cin" OtherKey="cin" Type="mec" />
+      <Association Name="enseignant_Notification" Member="Notifications" ThisKey="cin" OtherKey="id_ens" Type="Notification" />
+      <Association Name="enseignant_emploi_enseignant" Member="emploi_enseignants" ThisKey="cin" OtherKey="id_ens" Type="emploi_enseignant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.enseignant_mod" Member="enseignant_mods">
+    <Type Name="enseignant_mod">
+      <Column Name="cin_enseignant" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_module" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="volume_h" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type_ens" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="enseignant_enseignant_mod" Member="enseignant" ThisKey="cin_enseignant" OtherKey="cin" Type="enseignant" IsForeignKey="true" />
+      <Association Name="module_enseignant_mod" Member="module" ThisKey="id_module" OtherKey="id_module" Type="module" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.enseigner" Member="enseigners">
+    <Type Name="enseigner">
+      <Column Name="cin_enseignant" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_classe" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_module" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="heure" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="salle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jour" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="classe_enseigner" Member="classe" ThisKey="id_classe" OtherKey="id_classe" Type="classe" IsForeignKey="true" />
+      <Association Name="enseignant_enseigner" Member="enseignant" ThisKey="cin_enseignant" OtherKey="cin" Type="enseignant" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="module_enseigner" Member="module" ThisKey="id_module" OtherKey="id_module" Type="module" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mec" Member="mecs">
+    <Type Name="mec">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cin" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="module" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="classe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="classe_mec" Member="classe1" ThisKey="classe" OtherKey="id_classe" Type="classe" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="enseignant_mec" Member="enseignant" ThisKey="cin" OtherKey="cin" Type="enseignant" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="module_mec" Member="module1" ThisKey="module" OtherKey="id_module" Type="module" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.module" Member="modules">
+    <Type Name="module">
+      <Column Name="id_module" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom_module" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="volume_h" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="regime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="coefficient" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="url" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="annee_etude" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="niveau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="module_enseignant_mod" Member="enseignant_mods" ThisKey="id_module" OtherKey="id_module" Type="enseignant_mod" />
+      <Association Name="module_enseigner" Member="enseigners" ThisKey="id_module" OtherKey="id_module" Type="enseigner" />
+      <Association Name="module_mec" Member="mecs" ThisKey="id_module" OtherKey="module" Type="mec" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notification" Member="Notifications">
+    <Type Name="Notification">
+      <Column Name="id_notif" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="id_ens" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Association Name="enseignant_Notification" Member="enseignant" ThisKey="id_ens" OtherKey="cin" Type="enseignant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.emploi_enseignant" Member="emploi_enseignants">
+    <Type Name="emploi_enseignant">
+      <Column Name="id_tache" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="heure_deb" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="heure_fin" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="salle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="id_ens" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Association Name="enseignant_emploi_enseignant" Member="enseignant" ThisKey="id_ens" OtherKey="cin" Type="enseignant" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB57659E-688B-46F3-B17C-B0C7C7185270}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ERP_Teacher</RootNamespace>
+    <AssemblyName>ERP_Teacher</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\Desktop\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.3.4.1.2976\lib\net35\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.3.4.1.2976\lib\net35\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\WindowsFormsApp2\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Nemiro.OAuth, Version=1.13.0.2828, Culture=neutral, PublicKeyToken=cb06320e362d440b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.1.13.0\lib\net461\Nemiro.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Nemiro.OAuth.LoginForms, Version=1.7.0.2830, Culture=neutral, PublicKeyToken=2656cfe28099e3f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.LoginForms.1.7.0\lib\net461\Nemiro.OAuth.LoginForms.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="SpeechClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=720c26922c782415, processorArchitecture=x86">
+      <HintPath>..\packages\Microsoft.ProjectOxford.SpeechRecognition-x86.1.0.0.7\lib\SpeechClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TouchlessLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\touchless\sourceCode\branches\v.1\trunk\bin\Release\TouchlessLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WebCamLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\touchless\sourceCode\branches\v.1\trunk\bin\Release\WebCamLib.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accueil_Enseignant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accueil_Enseignant.designer.cs">
+      <DependentUpon>Accueil_Enseignant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adm_ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adm_ens.Designer.cs">
+      <DependentUpon>adm_ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assiduite_Ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assiduite_Ens.designer.cs">
+      <DependentUpon>Assiduite_Ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaptrePhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaptrePhoto.Designer.cs">
+      <DependentUpon>CaptrePhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="chercher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="chercher.Designer.cs">
+      <DependentUpon>chercher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashboardAdmin.Designer.cs">
+      <DependentUpon>DashboardAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Emploi_ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Emploi_ens.Designer.cs">
+      <DependentUpon>Emploi_ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gerer_ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gerer_ens.Designer.cs">
+      <DependentUpon>gerer_ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEmploi.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionEmploi.designer.cs">
+      <DependentUpon>GestionEmploi.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FacialRecog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacialRecog.Designer.cs">
+      <DependentUpon>FacialRecog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionClasses.Designer.cs">
+      <DependentUpon>GestionClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionClasse_Enseignant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionClasse_Enseignant.designer.cs">
+      <DependentUpon>GestionClasse_Enseignant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion_module_Ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion_module_Ens.designer.cs">
+      <DependentUpon>Gestion_module_Ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Info_pers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Info_pers.designer.cs">
+      <DependentUpon>Info_pers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription_Enseignant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inscription_Enseignant.designer.cs">
+      <DependentUpon>Inscription_Enseignant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginteach.cs">
+      <DependentUpon>loginteach.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="loginteach.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loginteach.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="modif_ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modif_ens.Designer.cs">
+      <DependentUpon>modif_ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QrScanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QrScanner.Designer.cs">
+      <DependentUpon>QrScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stats.Designer.cs">
+      <DependentUpon>Stats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telechargements_Ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telechargements_Ens.designer.cs">
+      <DependentUpon>Telechargements_Ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Travail_a_rendre_Ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Travail_a_rendre_Ens.designer.cs">
+      <DependentUpon>Travail_a_rendre_Ens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Travail_a_rendre_valide_Ens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Travail_a_rendre_valide_Ens.designer.cs">
+      <DependentUpon>Travail_a_rendre_valide_Ens.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Accueil_Enseignant.resx">
+      <DependentUpon>Accueil_Enseignant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm_ens.resx">
+      <DependentUpon>adm_ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assiduite_Ens.resx">
+      <DependentUpon>Assiduite_Ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaptrePhoto.resx">
+      <DependentUpon>CaptrePhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="chercher.resx">
+      <DependentUpon>chercher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardAdmin.resx">
+      <DependentUpon>DashboardAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Emploi_ens.resx">
+      <DependentUpon>Emploi_ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gerer_ens.resx">
+      <DependentUpon>gerer_ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionEmploi.resx">
+      <DependentUpon>GestionEmploi.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacialRecog.resx">
+      <DependentUpon>FacialRecog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionClasses.resx">
+      <DependentUpon>GestionClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionClasse_Enseignant.resx">
+      <DependentUpon>GestionClasse_Enseignant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion_module_Ens.resx">
+      <DependentUpon>Gestion_module_Ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info_pers.resx">
+      <DependentUpon>Info_pers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inscription_Enseignant.resx">
+      <DependentUpon>Inscription_Enseignant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modif_ens.resx">
+      <DependentUpon>modif_ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QrScanner.resx">
+      <DependentUpon>QrScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stats.resx">
+      <DependentUpon>Stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telechargements_Ens.resx">
+      <DependentUpon>Telechargements_Ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Travail_a_rendre_Ens.resx">
+      <DependentUpon>Travail_a_rendre_Ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Travail_a_rendre_valide_Ens.resx">
+      <DependentUpon>Travail_a_rendre_valide_Ens.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="loginteach.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>loginteach.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="loginteach.dbml.layout">
+      <DependentUpon>loginteach.dbml</DependentUpon>
+    </None>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="concrt140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CUFFT_EULA.txt" />
+    <Content Include="cvextern.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_frontalface_alt2.xml" />
+    <Content Include="haarcascade_frontalface_alt_tree.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="License-LGPL.txt" />
+    <Content Include="msvcp140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_ffmpeg341.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\light-blue-background-4.jpg" />
+    <None Include="Resources\Photo_enseignant_448063.54.JPG" />
+    <None Include="Resources\Gmail-login-process-with-few-simple-steps.png" />
+    <None Include="Resources\icons8_Search_48px_1.png" />
+    <None Include="Resources\instagram-photo-camera-logo-outline_318-56004.jpg" />
+    <None Include="Resources\580b57fcd9996e24bc43c521.png" />
+    <None Include="Resources\1b2ca367caa7eff8b45c09ec09b44c16-instagram-icon-logo-by-vexels.png" />
+    <None Include="Resources\15-512.png" />
+    <None Include="Resources\Icons8-Windows-8-Security-Fingerprint-Scan.ico" />
+    <Content Include="vcruntime140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets'))" />
+  </Target>
+</Project>
